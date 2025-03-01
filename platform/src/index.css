@@ -1,0 +1,168 @@
+/* Ensure the body and root container fill the screen */
+html, body, #root {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  color: black;
+}
+
+/* Make the map container take up the entire screen */
+.map-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Sidebar Truck List */
+.truck-list {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.truck-list h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.truck-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.truck-list li {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.2s;
+}
+
+.truck-list li:hover {
+  background: #f0f0f0;
+}
+
+.truck-list .selected {
+  background: #d1e7ff;
+}
+
+.truck-list .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.side-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+}
+
+
+/* Map container styling (already in use, but here for reference) */
+.map-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Left truck list */
+.truck-list {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.truck-list h3 {
+  margin-top: 0;
+}
+
+.truck-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.truck-list li {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.truck-list li.selected {
+  background-color: #e6f7ff; /* highlight color */
+}
+
+.truck-list li .icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* RIGHT SIDEBAR */
+.right-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  max-width: 80%;
+  height: 100vh;
+  background-color: #fff;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.right-sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.sidebar-header h3 {
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.sidebar-content {
+  padding: 1rem;
+  overflow-y: auto;
+  flex: 1;
+}
