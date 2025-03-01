@@ -71,40 +71,6 @@ def get_highest_confidence_gesture(gestures):
     return 
 
 
-def detect_gesture(frame):
-    # Flip horizontally for a mirror-like effect
-    frame = cv2.flip(frame, 1)
-
-    # Convert the BGR image to RGB
-    results = hands.process(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
-
-    curr_gesture = "no_hand"
-
-    if results.multi_hand_landmarks:
-        # For each hand detected
-        for hand_landmarks in results.multi_hand_landmarks:
-            # Draw hand landmarks on the frame for visualization
-            if ANNOTATE_HAND:
-                mp_drawing.draw_landmarks(
-                    frame, 
-                    hand_landmarks, 
-                    mp_hands.HAND_CONNECTIONS
-                )
-
-            # Count how many fingers are extended
-            fingers_up = count_fingers_up(hand_landmarks)
-
-            # Classify the gesture
-            gesture_conf = classify_gesture(fingers_up, hand_landmarks)
-
-            curr_gesture = max(gesture_conf, key=gesture_conf.get)
-
-
-    # ['thumbs_up', 'thumbs_down', 'five_fingers', 'unknown', 'no_hand']
-    print(f"Gesture: {curr_gesture}")
-
-    return curr_gesture
-
 def main():
     cap = cv2.VideoCapture(0)
     
