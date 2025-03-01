@@ -6,3 +6,5 @@ bounty1/venv2/
 bounty1/venv2
 bounty1/venv3
 bounty1/venv3/*
+oursecrets.py
+bounty1/oursecrets.py
